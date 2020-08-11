@@ -391,6 +391,7 @@ GameObject:
   - component: {fileID: 1670783517}
   - component: {fileID: 1670783516}
   - component: {fileID: 1670783515}
+  - component: {fileID: 1670783520}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -411,8 +412,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  jumpForce: 200
-  maxJumps: 1
+  jumpForce: 5
+  maxJumps: 2
+  currentJumps: 0
   height: 1.1
 --- !u!61 &1670783516
 BoxCollider2D:
@@ -518,12 +520,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670783514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.033057, y: -0.6717941, z: 0}
+  m_LocalPosition: {x: -3.033057, y: -0.6717941, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1670783520
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670783514}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 25b44715e0938c84ebdfce55ce5522dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1834834676
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,7 +556,7 @@ GameObject:
   - component: {fileID: 1834834679}
   - component: {fileID: 1834834678}
   - component: {fileID: 1834834677}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

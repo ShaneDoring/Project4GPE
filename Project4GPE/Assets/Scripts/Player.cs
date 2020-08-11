@@ -12,11 +12,13 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rigidBody;
     private SpriteRenderer sprite;
+    private BoxCollider2D boxCollider2D;
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
         currentJumps = maxJumps;
     }
 
@@ -55,13 +57,31 @@ public class Player : MonoBehaviour
     }
     void Jump()
     {
-        currentJumps--;
-        rigidBody.AddForce(Vector2.up * jumpForce);
+       currentJumps--;
+        // rigidBody.AddForce(Vector2.up * jumpForce);
+        rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
     }
-    bool IsGrounded()
+   /* bool IsGrounded()
     {
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.down, (height / 2f) * 0.1f);
 
         return (hitInfo.collider!=null);
+    }*/
+   private bool IsGrounded()
+    {
+        float extraHeighttext = .1f;
+       RaycastHit2D raycastHit= Physics2D.Raycast(boxCollider2D.bounds.center, Vector2.down, boxCollider2D.bounds.extents.y+extraHeighttext);
+        Color rayColor;
+        if (raycastHit.collider != null)
+        {
+            rayColor = Color.green;
+        }
+        else
+        {
+            rayColor = Color.red;
+        }
+        Debug.DrawRay(boxCollider2D.bounds.center, Vector2.down * (boxCollider2D.bounds.extents.y + extraHeighttext), rayColor);
+        Debug.Log(raycastHit.collider);
+        return raycastHit.collider != null;
     }
 }
