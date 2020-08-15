@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
+      
 
         currentJumps = maxJumps;
     }

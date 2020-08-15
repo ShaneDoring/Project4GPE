@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bb4b39819fdb5a44d8d3c1891a40eb34
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - audioSource: {instanceID: 0}
+  - doorOpeningClip: {fileID: 8300000, guid: 8c3b42be600997b43a35f01e99ee2b5d, type: 3}
+  - steamClip: {fileID: 8300000, guid: 22fe092afa7aea54f8f6088ca8f15a9c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
