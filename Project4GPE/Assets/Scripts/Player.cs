@@ -13,12 +13,15 @@ public class Player : MonoBehaviour
     private Rigidbody2D rigidBody;
     private SpriteRenderer sprite;
     private BoxCollider2D boxCollider2D;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         boxCollider2D = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
+
         currentJumps = maxJumps;
     }
 
@@ -27,7 +30,19 @@ public class Player : MonoBehaviour
     {
         float xMovement = Input.GetAxis("Horizontal")*speed;
 
+        animator.SetFloat("xMove", Mathf.Abs(xMovement));
+
         rigidBody.velocity = new Vector2(xMovement, rigidBody.velocity.y);
+
+       /* if (rigidBody.velocity.x != 0)
+        {
+            animator.Play("PlayerWalk");
+        }
+        else
+        {
+            animator.Play("PlayerIdle");
+        }
+       */
 
         if (rigidBody.velocity.x > 0)
         {
@@ -58,6 +73,7 @@ public class Player : MonoBehaviour
     void Jump()
     {
        currentJumps--;
+        animator.SetTrigger("Jump");
         // rigidBody.AddForce(Vector2.up * jumpForce);
         rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
     }
@@ -82,6 +98,13 @@ public class Player : MonoBehaviour
         }
         Debug.DrawRay(boxCollider2D.bounds.center, Vector2.down * (boxCollider2D.bounds.extents.y + extraHeighttext), rayColor);
         Debug.Log(raycastHit.collider);
-        return raycastHit.collider != null;
+        bool grounded= raycastHit.collider != null;
+        animator.SetBool("isGrounded", grounded);
+        return grounded;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        IsGrounded();
     }
 }
