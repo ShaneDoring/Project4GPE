@@ -30,8 +30,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         float xMovement = Input.GetAxis("Horizontal")*speed;
+        
 
         animator.SetFloat("xMove", Mathf.Abs(xMovement));
+       
 
         rigidBody.velocity = new Vector2(xMovement, rigidBody.velocity.y);
 
@@ -77,6 +79,7 @@ public class Player : MonoBehaviour
         animator.SetTrigger("Jump");
         // rigidBody.AddForce(Vector2.up * jumpForce);
         rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
+        
     }
    /* bool IsGrounded()
     {
