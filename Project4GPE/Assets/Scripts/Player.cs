@@ -77,6 +77,7 @@ public class Player : MonoBehaviour
     {
        currentJumps--;
         animator.SetTrigger("Jump");
+        animator.SetBool("Jump1",true);
         // rigidBody.AddForce(Vector2.up * jumpForce);
         rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
         
@@ -104,6 +105,7 @@ public class Player : MonoBehaviour
         Debug.Log(raycastHit.collider);
         bool grounded= raycastHit.collider != null;
         animator.SetBool("isGrounded", grounded);
+        animator.SetBool("Jump1", false);
         return grounded;
     }
 
