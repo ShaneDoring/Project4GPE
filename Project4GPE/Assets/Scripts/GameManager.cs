@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public int currentSceneIndex=0;
     public int points;
+    public int playerLives = 3;
 
     public GameObject playerPrefab;
     public GameObject player;
