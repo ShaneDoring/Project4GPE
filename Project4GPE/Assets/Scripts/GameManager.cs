@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject playerPrefab;
     public GameObject player;
+    public GameObject playerSpawnPoint;
 
     public void OnEnable()
     {
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        SpawnPlayer();
     }
 
     private void Update()
@@ -68,5 +69,15 @@ public class GameManager : MonoBehaviour
     public void LoadNextScene()
     {
         LoadLevel(currentSceneIndex + 1);
+    }
+
+    public void SpawnPlayer()
+    {
+        if (GameManager.instance.player == null && GameManager.instance.playerLives > 0)
+        {
+            player = Instantiate(playerPrefab, playerSpawnPoint.transform.position, Quaternion.identity);
+        }
+
+        
     }
 }
