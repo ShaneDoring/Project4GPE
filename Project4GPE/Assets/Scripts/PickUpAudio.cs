@@ -14,6 +14,7 @@ public class PickUpAudio : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(pickUpSoundEffect, transform.position);
             GameManager.instance.points += pointValue;
+            Destroy(this.gameObject);
         }
 
     }
