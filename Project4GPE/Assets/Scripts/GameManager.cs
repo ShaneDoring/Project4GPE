@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject player;
     public GameObject playerSpawnPoint;
+    
 
     public void OnEnable()
     {
@@ -47,6 +48,8 @@ public class GameManager : MonoBehaviour
         {
             LoadNextScene();
         }*/
+      
+
     }
 
     public void LoadLevel(int levelIndex)

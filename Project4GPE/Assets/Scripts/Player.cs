@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public int maxJumps = 1;
     public int currentJumps;
     public float height = 1.1f;
+    
 
     private Rigidbody2D rigidBody;
     private SpriteRenderer sprite;

@@ -9,6 +9,7 @@ public class Pitfall : MonoBehaviour
     {
         Destroy(otherObject.gameObject);
         GameManager.instance.playerLives--;
+       
     }
 
 
