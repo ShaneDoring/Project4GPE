@@ -52,3 +52,5 @@ MonoBehaviour:
   player: {fileID: 0}
   playerSpawnPoint: {fileID: 2988894458258223162, guid: eb631642e750a334dbfb4e78b1ad5371,
     type: 3}
+  playerCheckpoint: {fileID: 1087568927478820674, guid: c64bd031b669f674da57d8a497228f8d,
+    type: 3}

@@ -13,10 +13,12 @@ public class GameManager : MonoBehaviour
     public int points;
     public int playerLives = 3;
     public string gameState = "Title Screen";
+    public bool isCheckpoint = false;
 
     public GameObject playerPrefab;
     public GameObject player;
     public GameObject playerSpawnPoint;
+    public GameObject playerCheckpoint;
     
 
     public void OnEnable()
@@ -45,14 +47,8 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update()
-    {
-      //  if (Input.GetKeyDown(KeyCode.A))
-      //  {
-     //       LoadNextScene();
-      //  }
-      
-        //FSM GAME STATE
-
+    {     
+                                             //FSM GAME STATE
         //Title Screen
         if(gameState=="Title Screen")
         {
@@ -80,29 +76,25 @@ public class GameManager : MonoBehaviour
             //check for transitions
             if (GameManager.instance.playerLives <= 0)
             {
-                LoadLevel(4);             
-                ChangeState ("Game Over");
+                GameOver();
             }
-
-        }
-
-        //Player Death
-        if(gameState=="Player Death")
-        {
-            //do behaviour
-
-            //check for transitions
         }
 
         //Victory Screen
         if (gameState=="Victory Screen")
         {
-            //do behaviour
-
             //check for transitions
+            if (Input.anyKey)
+            {
+                Retry();
+            }
 
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }       
         }
-
+        //Game Over Screen
         if (gameState=="Game Over")
         {
             //wait for player
@@ -117,18 +109,11 @@ public class GameManager : MonoBehaviour
             {
                 Application.Quit();
             }
-
         }
-
- 
-
-        
-
-
-
-
-
     }
+
+
+    // METHODS
 
     public void LoadLevel(int levelIndex)
     {
@@ -159,15 +144,10 @@ public class GameManager : MonoBehaviour
 
     public void SpawnPlayer()
     {   
-        //if(GameManager.instance.playerLives>0)
-        {
-            player = Instantiate(playerPrefab, playerSpawnPoint.transform.position, Quaternion.identity);
-        }
-
-        
+        {           
+         player = Instantiate(playerPrefab, playerSpawnPoint.transform.position, Quaternion.identity);                   
+        } 
     }
-
-    
 
     public void StartGame()
     {
@@ -176,17 +156,17 @@ public class GameManager : MonoBehaviour
         ChangeState("In Game");
         
     }
-
-
     public void Retry()
     {
         playerLives += 3; 
         LoadLevel(0);
-        ChangeState("Title Screen");
-      
-        
+        ChangeState("Title Screen");   
     }
-
+    public void GameOver()
+    {
+        LoadLevel(5);
+        ChangeState("Game Over");
+    }
   
 
 
