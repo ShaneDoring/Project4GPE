@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEditorInternal;
@@ -56,8 +57,16 @@ public class GameManager : MonoBehaviour
         if(gameState=="Title Screen")
         {
             //do nothing
-            
-            //wait for button click
+
+            //wait for user input
+            if (Input.anyKey)
+            {
+                StartGame();
+            }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
         }
 
         //In Game
@@ -71,8 +80,7 @@ public class GameManager : MonoBehaviour
             //check for transitions
             if (GameManager.instance.playerLives <= 0)
             {
-                LoadLevel(4);
-                playerLives += 3;
+                LoadLevel(4);             
                 ChangeState ("Game Over");
             }
 
@@ -97,9 +105,19 @@ public class GameManager : MonoBehaviour
 
         if (gameState=="Game Over")
         {
-            //wait for on clicks
-           
-            
+            //wait for player
+
+            //transitions
+            if (Input.anyKey)
+            {
+                Retry();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
+
         }
 
  
@@ -168,6 +186,8 @@ public class GameManager : MonoBehaviour
       
         
     }
+
+  
 
 
 }
