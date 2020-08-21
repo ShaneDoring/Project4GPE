@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,9 +26,13 @@ public class CameraFollow : MonoBehaviour
     // LateUpdate is called after Update each frame
     void LateUpdate()
     {
-        player = GameManager.instance.player;
-        // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
-        transform.position = player.transform.position + offset;
+        if (GameManager.instance.player != null)
+        {
+            player = GameManager.instance.player;
+            // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
+            transform.position = player.transform.position + offset;
+        }
+       
     }
 }
 

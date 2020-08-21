@@ -44,3 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSceneIndex: 0
+  points: 0
+  playerLives: 3
+  gameState: In Game
+  playerPrefab: {fileID: 2648617520588656329, guid: 103da2983428b0546b714b8da8b9f230,
+    type: 3}
+  player: {fileID: 0}
+  playerSpawnPoint: {fileID: 2988894458258223162, guid: eb631642e750a334dbfb4e78b1ad5371,
+    type: 3}
