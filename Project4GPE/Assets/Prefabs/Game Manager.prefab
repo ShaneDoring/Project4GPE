@@ -46,7 +46,7 @@ MonoBehaviour:
   currentSceneIndex: 0
   points: 0
   playerLives: 3
-  gameState: In Game
+  gameState: Title Screen
   playerPrefab: {fileID: 2648617520588656329, guid: 103da2983428b0546b714b8da8b9f230,
     type: 3}
   player: {fileID: 0}

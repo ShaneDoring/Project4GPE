@@ -204,7 +204,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1799552259739575874, guid: 1d40f59e90ea13248a72b7c8e796d23f,
           type: 3}
-        m_MethodName: LoadNextScene
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -788,6 +788,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799552259739575874, guid: 1d40f59e90ea13248a72b7c8e796d23f,
+        type: 3}
+      propertyPath: gameState
+      value: Title Screen
       objectReference: {fileID: 0}
     - target: {fileID: 1799552259739575875, guid: 1d40f59e90ea13248a72b7c8e796d23f,
         type: 3}

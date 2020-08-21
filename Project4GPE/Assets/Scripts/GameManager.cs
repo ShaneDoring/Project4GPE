@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         if(gameState=="Title Screen")
         {
             //do nothing
-
+            
             //wait for button click
         }
 
@@ -71,6 +71,8 @@ public class GameManager : MonoBehaviour
             //check for transitions
             if (GameManager.instance.playerLives <= 0)
             {
+                LoadLevel(4);
+                playerLives += 3;
                 ChangeState ("Game Over");
             }
 
@@ -95,6 +97,8 @@ public class GameManager : MonoBehaviour
 
         if (gameState=="Game Over")
         {
+            //wait for on clicks
+           
             
         }
 
@@ -145,30 +149,24 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void TitleScreen()
-    {
-
-    }
+    
 
     public void StartGame()
     {
-        LoadNextScene();
+        
+        LoadLevel(1);
         ChangeState("In Game");
+        
     }
 
-    public void Gameplay()
+
+    public void Retry()
     {
-
-    }
-
-    public void Victory()
-    {
-
-    }
-
-    public void GameOver()
-    {
-
+        playerLives += 3; 
+        LoadLevel(0);
+        ChangeState("Title Screen");
+      
+        
     }
 
 
