@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
     public int maxJumps = 1;
     public int currentJumps;
     public float height = 1.1f;
-    
+
+    public AudioClip jumpClip;
+    public AudioSource audioSource;
 
     private Rigidbody2D rigidBody;
     private SpriteRenderer sprite;
@@ -69,6 +71,8 @@ public class Player : MonoBehaviour
             {
                 Jump();
             }
+                audioSource.clip = jumpClip;
+                audioSource.Play();
             
         }
 

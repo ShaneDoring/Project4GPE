@@ -7,6 +7,7 @@ MonoImporter:
   - audioSource: {instanceID: 0}
   - doorOpeningClip: {fileID: 8300000, guid: 8c3b42be600997b43a35f01e99ee2b5d, type: 3}
   - steamClip: {fileID: 8300000, guid: 22fe092afa7aea54f8f6088ca8f15a9c, type: 3}
+  - jumpClip: {fileID: 8300000, guid: b01df8f1e1d370c4f89d26ba58878730, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
